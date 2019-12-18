@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "C:\\Users\\lubraz\\.virtualenvs\\Twitter-Integration-Kafka-r833Bi_K\\Scripts\\python.exe",
+    "azureFunctions.deploySubpath": "TwitterIntegrationFunction",
+    "azureFunctions.scmDoBuildDuringDeployment": true,
+    "azureFunctions.projectLanguage": "Python",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen"
+}
