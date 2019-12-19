@@ -40,4 +40,4 @@
       nifi:
         image: apache/nifi:latest
         ports:
-          - 8080:8080k
+          - 8080:8080
