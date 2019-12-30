@@ -1,0 +1,39 @@
+from azure.eventhub import Offset
+
+# EventHub configs
+EVENTHUB_NAMESPACE = 'YOUR_EVENTHUB_NAMESPACE'
+EVENTHUB_NAME = 'YOUR_EVENTHUB_NAME'
+EVENTHUB_CONSUMER_GROUP = 'YOUR_CONSUMER_GROUP'
+EVENTHUB_PARTITION = '0'
+EVENTHUB_OFFSET = Offset("-1")
+
+# SAS policy and key are not required if they are encoded in the URL
+EVENTHUB_USER = "YOUR_EVENTHUB_POLICY_NAME"
+EVENTHUB_KEY = "YOUR_EVENTHUB_PRIMARY_KEY"
+
+# Address can be in either of these formats:
+# "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<mynamespace>.servicebus.windows.net/myeventhub"
+# "amqps://<mynamespace>.servicebus.windows.net/myeventhub"
+# For example:
+EVENTHUB_ADDRESS = "amqps://{}.servicebus.windows.net/{}".format(EVENTHUB_NAMESPACE,
+                                                                 EVENTHUB_NAME)
+
+TIME_TO_WAIT = 100.0
+
+KAFKA = {
+        'bootstrap.servers': '{}.servicebus.windows.net:9093'.format(EVENTHUB_NAMESPACE),
+        'security.protocol': 'SASL_SSL',
+        'ssl.ca.location': '/usr/lib/ssl/certs/ca-certificates.crt',
+        'sasl.mechanism': 'PLAIN',
+        'sasl.username': '$ConnectionString',
+        'sasl.password': 'Endpoint=<YOUR_EVENTHUB_CONNECTION_STRING>',          #update
+        'group.id': EVENTHUB_CONSUMER_GROUP,
+        'client.id': 'python-example-consumer',
+        'request.timeout.ms': 60000,
+        'session.timeout.ms': 60000,
+        'default.topic.config': {'auto.offset.reset': 'smallest'}
+        # This flag is very useful when we want to debug Kafka
+        # because is not very simple to see what is happening
+        # during Kafka execution
+        # 'debug': 'cgrp,topic,consumer'
+    }

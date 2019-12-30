@@ -1,3 +1,8 @@
+# Try consumers from different libraries
+##  Consumer messages from azure.eventhub library
+### Comment/Uncomment GetMessagesFromKafka or GetMessagesFromEventHub
+./Twitter-Integration-Kafka/run.py
+
 # Azure Functions configurations
 ## Create project
 func init TwitterIntegrationFunction --python
