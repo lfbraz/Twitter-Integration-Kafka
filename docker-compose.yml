@@ -38,6 +38,6 @@
           KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
           KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       nifi:
-        image: apache/nifi:latest
+        image: apache/nifi:1.11.1
         ports:
           - 8080:8080
